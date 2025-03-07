@@ -38,7 +38,19 @@ body {
 	height: 100vh; /* Para que ocupe toda la altura de la pantalla */
 	overflow: hidden;
 	color: #ffffff;
-	text-shadow: 4px 4px 4px rgba(0,0,0,0.7);   
+	text-shadow: 4px 4px 4px rgba(0,0,0,0.7);
+}
+.responsive-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+/* Ajuste para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .responsive-video {
+        height: 250px; /* Ajusta la altura para móviles */
+    }
 }
 .intro video {
 	position: absolute;
@@ -1985,7 +1997,7 @@ input, select, textarea {
 
 	ul.icons {
 		position: relative;
-		background: rgba(128, 128, 128, 0.05);
+		background: rgba(0,0,0,0.7);
 		border-radius: 4em;
 		display: inline-block;
 		padding: 0.35em 0.75em 0.35em 0.75em;
@@ -2545,14 +2557,21 @@ input, select, textarea {
         margin-bottom: 20px;
     }
 
+.logo-responsive {
+    max-width: 900px; /* Tamaño máximo en pantallas grandes */
+    height: auto;
+}
 
-.footer-logo {
-	    max-width: 250px; /* Ajusta el tamaño de los logos */
-        height: auto;
+/* Ajuste para móviles */
+@media screen and (max-width: 768px) {
+    .logo-responsive {
+        max-width: 100px; /* Reduce el tamaño en móviles */
+        margin: 0 auto; /* Centra el logo */
+    }
 }
 
 	#footer {
-	    background: #222;
+	    background: #b3b3af;
         color: #fff;
         padding: 40px 20px;
         text-align: center;
@@ -2582,13 +2601,13 @@ input, select, textarea {
 
 		#footer .copyright {
 			text-align: center;
-			color: rgba(128, 128, 128, 0.75);
-			font-size: 0.8em;
+			color: #0b0b0b;
+			font-size: 1em;
 			cursor: default;
 		}
 
 			#footer .copyright a {
-				color: rgba(128, 128, 128, 0.75);
+				color: #010101;
 			}
 
 				#footer .copyright a:hover {
@@ -3281,3 +3300,30 @@ button {
     text-align: center;
 }
 
+/* Ocultar la sección del antes y después en móviles */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* Mostrar contenido del ante y deespués adecuado según el tamaño de pantalla */
+@media screen and (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+    
+    .mobile-only {
+        display: block;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .mobile-only img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+}
