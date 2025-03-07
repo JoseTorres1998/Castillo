@@ -189,15 +189,9 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 400;
-		color: #483949;
+		color: #010101;
+		text-shadow: 4px 4px 4px rgba(0,0,0,0.7); 
 		line-height: 1.25em;
-	}
-
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-		color: #050505;
-		text-shadow: 4px 4px 4px rgba(0,0,0,0.7);  
-		text-decoration: none;
-		border-bottom-color: transparent;
 	}
 
 	h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
@@ -2382,7 +2376,7 @@ input, select, textarea {
 
 /* Logo alineado a la izquierda */
 #logo-img {
-    height: 100px;
+    height: 140px;
     margin-right: 0px;
 }
 
@@ -2542,21 +2536,27 @@ input, select, textarea {
 
 /* Footer */
 
+.footer-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+
+
 .footer-logo {
-        width: 100px;/* Ajusta según el tamaño deseado */
-	    height: auto;
-        display: block;
-        margin: 0 auto;
+	    max-width: 250px; /* Ajusta el tamaño de los logos */
+        height: auto;
 }
 
 	#footer {
-		position: relative;
-		overflow: hidden;
-		padding: 6em 0 6em 0;
-		background: #2b252c;
-		color: #fff;
+	    background: #222;
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
 	}
-
 		#footer .icon.circled {
 			background: #fff;
 			color: #2b252c;
