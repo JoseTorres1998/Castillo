@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600");
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url("fontawesome-all.min.css");
 
 /*
@@ -177,9 +177,13 @@ input, select, textarea {
 		color: #5b5b5b;
 		font-size: 15pt;
 		line-height: 1.85em;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: fuenteprueba;
 		font-weight: 300;
 	}
+@font-face {
+	font-family: fuenteprueba;
+	src: url ('EmblemaOneRegular.ttf');
+}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -272,7 +276,7 @@ input, select, textarea {
 	}
 
 	p {
-		text-align: justify;
+		text-align: center;
 	}
 
 	br.clear {
@@ -1997,11 +2001,11 @@ input, select, textarea {
 
 	ul.icons {
 		position: relative;
-		background: rgba(0,0,0,0.7);
+		background: rgba(0,0,0,0.2);
 		border-radius: 4em;
 		display: inline-block;
-		padding: 0.35em 0.75em 0.35em 0.75em;
-		font-size: 1.25em;
+		padding: 0.35em 0.73em 0.35em 0.75em;
+		font-size: 1em;
 		cursor: default;
 		list-style: none;
 	}
@@ -2024,7 +2028,7 @@ input, select, textarea {
 			}
 
 				ul.icons li a:hover {
-					color: #ef8376;
+					background: rgba(58, 152, 243, 0.75);
 				}
 
 /* Form */
@@ -2144,7 +2148,7 @@ input, select, textarea {
 	.button {
 		position: relative;
 		display: inline-block;
-		background: #df7366;
+		background: rgba(0, 0, 0, 0.3);
 		color: #fff;
 		text-align: center;
 		border-radius: 0.5em;
@@ -2166,7 +2170,7 @@ input, select, textarea {
 		button:hover,
 		.button:hover {
 			color: #fff;
-			background: #ef8376;
+			background: rgba(58, 152, 243, 0.75);
 		}
 
 		input[type="button"].alt,
@@ -2265,7 +2269,7 @@ input, select, textarea {
 
 	#header {
    position: relative;
-   background-image: url("../../imagescastle/Torredelhomenaje19.jpg");
+   background-image: url("../../imagescastle/");
    background-size: cover;
    background-position: center center;
    background-attachment: fixed;
@@ -2274,6 +2278,16 @@ input, select, textarea {
    padding: 7.5em 0 2em 0;
    cursor: default;
 	}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.4); /* Capa oscura semitransparente */
+    z-index: 1;
+}
 
 		#header:before {
 			content: '';
@@ -2388,8 +2402,9 @@ input, select, textarea {
 
 /* Logo alineado a la izquierda */
 #logo-img {
-    height: 140px;
-    margin-right: 0px;
+    height: 100px; /* Ajusta la altura del logo según el diseño */
+    width: auto;
+    display: block; /* Evita espacios extras debajo de la imagen */
 }
 
 /* Asegurar que el menú sea horizontal */
@@ -2409,6 +2424,8 @@ input, select, textarea {
 /* Asegurar que los enlaces sean visibles correctamente */
 #nav > .nav-container > ul > li > a {
     text-decoration: none;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 2em;
     color: white;
     padding: 10px 15px;
     display: inline-block;
@@ -2546,73 +2563,150 @@ input, select, textarea {
 			padding-top: 2em;
 		}
 
-/* Footer */
+/* Estilos para el footer */
+#footer {
+	text-shadow: 4px 4px 4px rgba(0,0,0,0.2);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
 
-.footer-logos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin-bottom: 20px;
-    }
-
-.logo-responsive {
-    max-width: 900px; /* Tamaño máximo en pantallas grandes */
+/* Estilos para el logo */
+.footer-logos img {
+    max-width: 100%;
     height: auto;
 }
 
-/* Ajuste para móviles */
-@media screen and (max-width: 768px) {
-    .logo-responsive {
-        max-width: 100px; /* Reduce el tamaño en móviles */
-        margin: 0 auto; /* Centra el logo */
+/* Estilos para redes sociales */
+.social-icons {
+    margin: 15px 0;
+}
+
+.social-icons ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+.social-icons ul li {
+    margin-right: 15px;
+}
+
+.social-icons .icon {
+    color: white;
+    font-size: 20px;
+}
+
+/* Estilos para el copyright */
+.copyright {
+    margin-top: 20px;
+    text-align: center;
+    max-width: 80%;
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	color: #000000;
+}
+
+.copyright .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.copyright .menu li {
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* Responsividad */
+
+/* Para tablets (menos de 768px) */
+@media (max-width: 768px) {
+    #footer {
+        padding: 15px;
+    }
+
+    .footer-logos {
+        margin-bottom: 10px;
+    }
+
+    .social-icons ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-icons ul li {
+        margin-bottom: 10px;
+    }
+
+    .copyright {
+        max-width: 90%;
+        font-size: 13px;
     }
 }
 
-	#footer {
-	    background: #b3b3af;
-        color: #fff;
-        padding: 40px 20px;
-        text-align: center;
-	}
-		#footer .icon.circled {
-			background: #fff;
-			color: #2b252c;
-		}
+/* Para móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .social-icons .icon {
+        font-size: 18px;
+    }
 
-		#footer header {
-			text-align: center;
-			cursor: default;
-		}
+    .copyright {
+        max-width: 95%;
+        font-size: 12px;
+        padding: 10px;
+    }
 
-		#footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
-			color: #fff;
-		}
+    .copyright .menu li {
+        font-size: 12px;
+    }
+}
 
-		#footer .contact {
-			text-align: center;
-		}
+/* Media Queries para Responsividad */
 
-			#footer .contact p {
-				text-align: center;
-				margin: 0 0 3em 0;
-			}
+/* Pantallas medianas (tabletas y menos de 768px de ancho) */
+@media (max-width: 768px) {
+    #footer {
+        padding: 15px;
+    }
 
-		#footer .copyright {
-			text-align: center;
-			color: #0b0b0b;
-			font-size: 1em;
-			cursor: default;
-		}
+    .footer-logos {
+        margin-bottom: 10px;
+    }
 
-			#footer .copyright a {
-				color: #010101;
-			}
+    .social-icons ul {
+        flex-direction: column;
+        align-items: center;
+    }
 
-				#footer .copyright a:hover {
-					color: rgba(212, 212, 212, 0.85);
-				}
+    .social-icons ul li {
+        margin-bottom: 10px;
+    }
+
+    .copyright {
+        margin-top: 10px;
+    }
+}
+
+/* Pantallas pequeñas (móviles con menos de 480px de ancho) */
+@media (max-width: 480px) {
+    .social-icons .icon {
+        font-size: 18px;
+    }
+
+    .copyright .menu li {
+        font-size: 12px;
+    }
+}
 
 /* Carousel */
 
@@ -3327,3 +3421,36 @@ button {
         border-radius: 10px;
     }
 }
+/*Contacto*/
+.info-box {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 10px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-box p {
+        margin: 5px 0;
+        font-size: 25px;
+        text-align: center;
+    }
+    .info-box a {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+    }
+    .horarios-imagen {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .horarios-imagen img {
+        max-width: 200%;
+        height: 900px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    }
