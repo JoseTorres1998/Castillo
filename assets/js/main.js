@@ -247,3 +247,16 @@
 	 after.style.width = `${percentage}%`;
 	 sliderLine.style.left = `${percentage}%`;
  }
+// Audio-Guía
+document.addEventListener("DOMContentLoaded", function () {
+        const audios = document.querySelectorAll(".audio-player");
+        audios.forEach(audio => {
+            audio.addEventListener("play", function () {
+                audios.forEach(otherAudio => {
+                    if (otherAudio !== audio) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    });
