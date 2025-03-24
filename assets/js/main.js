@@ -247,16 +247,144 @@
 	 after.style.width = `${percentage}%`;
 	 sliderLine.style.left = `${percentage}%`;
  }
+
 // Audio-Guía
 document.addEventListener("DOMContentLoaded", function () {
-        const audios = document.querySelectorAll(".audio-player");
-        audios.forEach(audio => {
-            audio.addEventListener("play", function () {
-                audios.forEach(otherAudio => {
-                    if (otherAudio !== audio) {
-                        otherAudio.pause();
-                    }
-                });
+    const audios = document.querySelectorAll(".audio-player");
+    const audioSection = document.querySelector(".backgroundaudios");
+    const openBtn = document.createElement("button");
+    const closeBtn = document.createElement("button");
+
+    // Configurar botones
+    openBtn.textContent = "Abrir Audioguía";
+    closeBtn.textContent = "Ocultar Audioguía";
+
+    // Añadir clases para los estilos
+    openBtn.classList.add("audio-toggle-btn");
+    closeBtn.classList.add("audio-toggle-btn");
+
+    // Insertar botones antes de la audioguía
+    audioSection.parentNode.insertBefore(openBtn, audioSection);
+    audioSection.parentNode.insertBefore(closeBtn, audioSection);
+
+    // Inicialmente ocultar el botón de cerrar
+    closeBtn.style.display = "none";
+
+    // Función para mostrar la audioguía
+    openBtn.addEventListener("click", function () {
+        audioSection.style.display = "block";
+        openBtn.style.display = "none";
+        closeBtn.style.display = "block";
+    });
+
+    // Función para ocultar la audioguía
+    closeBtn.addEventListener("click", function () {
+        audioSection.style.display = "none";
+        closeBtn.style.display = "none";
+        openBtn.style.display = "block";
+    });
+
+    // Asegurar que solo un audio se reproduzca a la vez
+    audios.forEach(audio => {
+        audio.addEventListener("play", function () {
+            audios.forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                    otherAudio.pause();
+                }
             });
         });
     });
+
+    // Ocultar la sección de audioguía al cargar la página
+    audioSection.style.display = "none";
+});
+
+// Video
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("video");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const muteBtn = document.getElementById("muteBtn");
+    const progressBar = document.getElementById("progressBar");
+    const currentTimeDisplay = document.getElementById("currentTime");
+    const durationDisplay = document.getElementById("duration");
+
+    // Esperar a que el video esté listo para obtener su duración
+    video.addEventListener("canplay", function () {
+        progressBar.max = video.duration;
+        durationDisplay.textContent = formatTime(video.duration);
+    });
+
+    // Play / Pause
+    playPauseBtn.addEventListener("click", function () {
+        if (video.paused) {
+            video.play();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            video.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+    });
+
+    // Mute / Unmute
+    muteBtn.addEventListener("click", function () {
+        video.muted = !video.muted;
+        muteBtn.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+    });
+
+    // Actualizar barra de progreso y tiempo actual mientras el video avanza
+    video.addEventListener("timeupdate", function () {
+        progressBar.value = video.currentTime;
+        currentTimeDisplay.textContent = formatTime(video.currentTime);
+    });
+
+    // Permitir adelantar / retroceder el video con la barra
+    progressBar.addEventListener("change", function () {
+        video.currentTime = progressBar.value;
+    });
+
+    // Reproducir automáticamente al finalizar
+    video.addEventListener("ended", function () {
+        video.play();
+    });
+
+    // Función para formatear el tiempo en minutos y segundos
+    function formatTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const sec = Math.floor(seconds % 60);
+        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }
+});
+
+// Seleccionar todas las imágenes del slider
+let sliderImages = document.querySelectorAll('.slider-image');
+let currentIndex = 0;
+
+// Función para cambiar la imagen activa
+function changeImage() {
+    // Eliminar la clase 'active' de la imagen actual
+    sliderImages[currentIndex].classList.remove('active');
+
+    // Incrementar el índice para que pase a la siguiente imagen
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+
+    // Añadir la clase 'active' a la siguiente imagen
+    sliderImages[currentIndex].classList.add('active');
+}
+
+// Cambiar imagen cada 3 segundos
+setInterval(changeImage, 3000);
+
+// Ocultar el banner al hacer clic en "Aceptar"
+document.getElementById('accept-cookies').addEventListener('click', function() {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('cookiesAccepted', 'true');
+});
+
+// Mantener el banner visible durante más tiempo al cargar
+window.onload = function() {
+    setTimeout(function() {
+        if (localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    }, 5000); // 5000 ms = 5 segundos (ajusta según lo que necesites)
+};

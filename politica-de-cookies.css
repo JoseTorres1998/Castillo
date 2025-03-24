@@ -1,0 +1,91 @@
+/* Estilos generales para la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    margin-left: 20px; /* Margen a la izquierda para todo el contenido */
+    margin-right: 20px; /* Margen a la derecha para todo el contenido */
+}
+
+h1 {
+    color: #2a7ae2;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2em;
+}
+
+h2 {
+    color: #2a7ae2;
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #2a7ae2;
+    font-size: 1.3em;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 15px 0;
+    margin-right: 20px; /* Margen a la derecha de los párrafos */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #2a7ae2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Caja contenedora de la política */
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;  /* Centra el contenedor en la pantalla */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    margin-right: 20px; /* Margen a la derecha del contenedor */
+}
+
+.container p {
+    font-size: 1.1em;
+}
+
+/* Botón de aceptación */
+#accept-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2a7ae2;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+#accept-button:hover {
+    background-color: #1
