@@ -355,36 +355,56 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Seleccionar todas las imágenes del slider
-let sliderImages = document.querySelectorAll('.slider-image');
-let currentIndex = 0;
+ // Comprobamos si el usuario ya ha aceptado las cookies
+                if (localStorage.getItem('cookies-accepted') !== 'true') {
+                    // Mostrar el banner
+                    document.getElementById('cookie-banner').style.display = 'block';
 
-// Función para cambiar la imagen activa
-function changeImage() {
-    // Eliminar la clase 'active' de la imagen actual
-    sliderImages[currentIndex].classList.remove('active');
+                    // Establecer un temporizador para ocultar el banner después de 8 segundos
+                    setTimeout(function() {
+                        // Verificar si no se ha aceptado todavía las cookies
+                        if (localStorage.getItem('cookies-accepted') !== 'true') {
+                            document.getElementById('cookie-banner').style.display = 'none';
+                        }
+                    }, 8000); // El banner desaparecerá después de 8 segundos
+                }
 
-    // Incrementar el índice para que pase a la siguiente imagen
-    currentIndex = (currentIndex + 1) % sliderImages.length;
+                // Event listener para el botón de "Aceptar"
+                document.getElementById('accept-cookies').addEventListener('click', function() {
+                    // Almacenamos que el usuario ha aceptado las cookies
+                    localStorage.setItem('cookies-accepted', 'true');
+                    // Ocultamos el banner inmediatamente
+                    document.getElementById('cookie-banner').style.display = 'none';
+                });
 
-    // Añadir la clase 'active' a la siguiente imagen
-    sliderImages[currentIndex].classList.add('active');
-}
+// Comprobamos si el usuario ya ha aceptado o rechazado las cookies
+if (localStorage.getItem('cookies-accepted') !== 'true' && localStorage.getItem('cookies-rejected') !== 'true') {
+    // Mostrar el banner
+    document.getElementById('cookie-banner').style.display = 'block';
 
-// Cambiar imagen cada 3 segundos
-setInterval(changeImage, 3000);
-
-// Ocultar el banner al hacer clic en "Aceptar"
-document.getElementById('accept-cookies').addEventListener('click', function() {
-    document.getElementById('cookie-banner').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
-});
-
-// Mantener el banner visible durante más tiempo al cargar
-window.onload = function() {
+    // Establecer un temporizador para ocultar el banner después de 8 segundos
     setTimeout(function() {
-        if (localStorage.getItem('cookiesAccepted')) {
+        // Verificar si no se ha aceptado ni rechazado todavía las cookies
+        if (localStorage.getItem('cookies-accepted') !== 'true' && localStorage.getItem('cookies-rejected') !== 'true') {
             document.getElementById('cookie-banner').style.display = 'none';
         }
-    }, 5000); // 5000 ms = 5 segundos (ajusta según lo que necesites)
-};
+    }, 8000); // El banner desaparecerá después de 8 segundos
+}
+
+// Event listener para el botón de "Aceptar"
+document.getElementById('accept-cookies').addEventListener('click', function() {
+    // Almacenamos que el usuario ha aceptado las cookies
+    localStorage.setItem('cookies-accepted', 'true');
+    // Ocultamos el banner inmediatamente
+    document.getElementById('cookie-banner').style.display = 'none';
+    console.log('El usuario ha aceptado las cookies.');
+});
+
+// Event listener para el botón de "Rechazar"
+document.getElementById('reject-cookies').addEventListener('click', function() {
+    // Almacenamos que el usuario ha rechazado las cookies
+    localStorage.setItem('cookies-rejected', 'true');
+    // Ocultamos el banner inmediatamente
+    document.getElementById('cookie-banner').style.display = 'none';
+    console.log('El usuario ha rechazado las cookies.');
+});
