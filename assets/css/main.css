@@ -2452,7 +2452,7 @@ input[type="datetime-local"] {
     font-size: 16px;
     border-radius: 6px;
     margin-top: 15px;
-	background-color: #007BFF;
+	background-color: rgba(0, 0, 0, 0.7);
 }
 
 /* Ocultar la sección del antes y después en móviles */
@@ -2504,14 +2504,14 @@ input[type="datetime-local"] {
 
 .info-box p {
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     text-align: center;
     color: #555;
 }
 
 .info-box a {
-    color: #007BFF;
+    color: rgba(0, 0, 0, 0.7);
     text-decoration: none;
     font-weight: bold;
     text-align: center;
@@ -2577,7 +2577,7 @@ input[type="datetime-local"] {
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background-color: #007BFF;
+    background-color: rgba(0, 0, 0, 0.7);
     border: none;
     border-radius: 8px;
     cursor: pointer;
