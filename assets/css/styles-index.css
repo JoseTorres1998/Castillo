@@ -1,0 +1,55 @@
+/*En este archivo cambiamos todos los estilo, no lo cambies en otro css*/
+
+/* Sección "Youtube" */
+.youtube-title {
+    font-size: 1.75em;
+    color: #000000;
+	text-decoration: underline;
+	font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.youtube p {
+    display: block;
+    font-size: 1.5em;
+    margin: 1em 0 2em 0;
+    line-height: 1.5em;
+    text-align: inherit;
+}
+
+.youtube {
+    text-align: center;
+    padding: 20px;
+}
+
+.youtube ul.icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+}
+
+.youtube .icons li {
+    margin: 10px;
+}
+
+.youtube .icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: red; /* Color de YouTube */
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.youtube .icons a:hover {
+    transform: scale(1.2); /* Aumenta el tamaño */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); /* Agrega un brillo rojo */
+    background-color: darkred; /* Oscurece un poco el fondo */
+}
