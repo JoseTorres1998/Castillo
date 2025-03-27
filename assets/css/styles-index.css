@@ -64,7 +64,11 @@
     width: 18em;
     margin-right: 1.25em;
     height: 785px;
+} 
+.carousel article p {
+    padding: 10px;
 }
+
   @media screen and (max-width: 1220px) {
     .carousel article {
         width: 18em;
