@@ -60,6 +60,11 @@
     height: 100%;
     object-fit: cover;
   }
+  .carousel article {
+    width: 18em;
+    margin-right: 1.25em;
+    height: 99vh;
+}
   @media screen and (max-width: 1680px) {
     .carousel article {
         width: 18em;
