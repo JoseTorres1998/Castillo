@@ -35,8 +35,7 @@
             </nav>
         </div>
 
-        <!-- Contenido principal -->
-        <div class="background">
+   <div class="background">
     <div class="form-container">
         <form id="visitaForm">
             <label for="nombre">Nombre Completo:</label>
@@ -55,9 +54,9 @@
             <input type="text" id="fechaDisplay" readonly placeholder="Selecciona una fecha y hora">
             <div id="calendarioContainer" style="display: none;">
                 <div id="calendarioHeader">
-                    <button type="button" id="prevMonth">&larr;</button>
+                    <button type="button" id="prevMonth">←</button>
                     <span id="mesAnio"></span>
-                    <button type="button" id="nextMonth">&rarr;</button>
+                    <button type="button" id="nextMonth">→</button>
                 </div>
                 <div id="calendarioDias">
                     <div>L</div><div>M</div><div>X</div><div>J</div><div>V</div><div>S</div><div>D</div>
@@ -67,11 +66,11 @@
                     <label>Hora:</label>
                     <select id="horaSelect">
                         <option value="10:00">10:00</option>
-                        <option value="10:00">10:30</option>
+                        <option value="10:30">10:30</option>
                         <option value="11:00">11:00</option>
-                        <option value="11:00">11:30</option>
+                        <option value="11:30">11:30</option>
                         <option value="12:00">12:00</option>
-                        <option value="12:00">12:30</option>
+                        <option value="12:30">12:30</option>
                     </select>
                     <button type="button" id="confirmarFecha">Confirmar</button>
                 </div>
@@ -83,9 +82,7 @@
     </div>
 </div>
 
-
-
-        <!-- Footer -->
+<!-- Footer -->
         <div id="footer">
             <!-- Logos -->
             <div class="footer-logos">
@@ -126,6 +123,7 @@
     <script src="../assets/js/breakpoints.min.js"></script>
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
+     <script src="../assets/js/form.js"></script>
 
 </body>
 </html>
