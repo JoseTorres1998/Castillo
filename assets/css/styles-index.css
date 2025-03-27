@@ -54,8 +54,17 @@
     background-color: darkred; /* Oscurece un poco el fondo */
 }
 
+/* estos estilos los he editado para el slider */
 .carousel article .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+  @media screen and (max-width: 1680px) {
+    .carousel article {
+        width: 18em;
+        margin-right: 1.25em;
+        height: 99vh;
+        min-height: 235vh;
+    }
+}
