@@ -35,6 +35,14 @@
 			}, 100);
 		});
 
+	// Dropdowns.
+		$('#nav > ul').dropotron({
+			mode: 'fade',
+			speed: 350,
+			noOpenerFade: true,
+			alignment: 'center'
+		});
+
 	// Scrolly.
 		$('.scrolly').scrolly();
 
@@ -248,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.createElement("button");
 
     // Configurar botones
-    openBtn.textContent = "Abrir Audioguía";
+    openBtn.textContent = "🔈 Audioguía";
     closeBtn.textContent = "Ocultar Audioguía";
 
     // Añadir clases para los estilos
@@ -400,5 +408,3 @@ document.getElementById('reject-cookies').addEventListener('click', function() {
     document.getElementById('cookie-banner').style.display = 'none';
     console.log('El usuario ha rechazado las cookies.');
 });
-
-
