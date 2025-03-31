@@ -1,55 +1,131 @@
 /*En este archivo cambiamos todos los estilo, no lo cambies en otro css*/
 
 /* Sección "Youtube" */
-.youtube-title {
-    font-size: 1.75em;
-    color: #000000;
-	text-decoration: underline;
-	font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.youtube p {
-    display: block;
-    font-size: 1.5em;
-    margin: 1em 0 2em 0;
-    line-height: 1.5em;
-    text-align: inherit;
-}
-
+/* Ajuste de la caja de YouTube */
 .youtube {
+    background: rgba(255, 255, 255, 0.95); /* Fondo ligeramente opaco */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
-    padding: 20px;
+    width: 250%; /* Tamaño más pequeño */
+    max-width: 502px;
+    margin: 14px auto 24px; /* Centrar la caja */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.youtube ul.icons {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
+/* Efecto hover en la caja */
+.youtube:hover {
+    transform: scale(1.05); /* Aumenta ligeramente de tamaño */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.youtube .icons li {
-    margin: 10px;
+/* Imagen dentro de la sección */
+.youtube-icon {
+    width: 60px; /* Ajuste de tamaño */
+    height: auto;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.youtube .icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    background-color: red; /* Color de YouTube */
-    color: white;
-    font-size: 30px;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: background 0.3s ease;
+/* Efecto hover en la imagen */
+.youtube-icon:hover {
+    transform: scale(1.2); /* La imagen crece */
+    filter: brightness(1.3); /* Se hace más brillante */
 }
 
-.youtube .icons a:hover {
-    transform: scale(1.2); /* Aumenta el tamaño */
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); /* Agrega un brillo rojo */
-    background-color: darkred; /* Oscurece un poco el fondo */
+/* Ajuste del título h3 dentro de la caja */
+.youtube h3 {
+    font-size: 30px; /* Letra más grande */
+    font-weight: bold;
+    color: #d10000; /* Rojo YouTube */
+    margin-top: 8px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.youtube p {
+font-size: 27px;
+text-align: inherit;
+}
+
+/* 📱 Adaptación para tablets y móviles */
+@media screen and (max-width: 1024px) { /* Tablets */
+    .youtube {
+        width: 90%;
+    }
+    .youtube h3 {
+        font-size: 26px;
+    }
+    .youtube p {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 768px) { /* Móviles */
+    .youtube {
+        width: 95%;
+        padding: 8px;
+    }
+    .youtube h3 {
+        font-size: 22px;
+    }
+    .youtube p {
+        font-size: 18px;
+    }
+    .youtube-icon {
+        width: 50px; /* Ícono más pequeño */
+    }
+}
+
+/*featured*/
+.feature-grid {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .feature-box {
+        width: 300px;
+        background-color: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+    }
+    .feature-box:hover {
+        transform: scale(1.05);
+    }
+    .feature-box img {
+        width: 100%;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .feature-box img:hover {
+        transform: scale(1.05);
+    }
+
+.imagen-movible1 {
+   transform: translateY(49px);
+    display: block;
+    margin: auto;
+    max-width: 100%; /* Evita que se salga del contenedor */
+    height: auto;
+}
+
+.imagen-movible {
+   transform: translateY(-27px);
+    display: block;
+    margin: auto;
+    max-width: 120%; /* Evita que se salga del contenedor */
+    height: auto;
+}
+
+/* Permite modificar la posición en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .imagen-movible {
+        width: 100px; /* Ajusta el tamaño en móviles */
+        top: 20px; 
+        left: 20px;
+    }
 }

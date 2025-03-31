@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.createElement("button");
 
     // Configurar botones
-    openBtn.textContent = "Abrir Audioguía";
+    openBtn.textContent = "🔈 Audioguía";
     closeBtn.textContent = "Ocultar Audioguía";
 
     // Añadir clases para los estilos
@@ -408,3 +408,54 @@ document.getElementById('reject-cookies').addEventListener('click', function() {
     document.getElementById('cookie-banner').style.display = 'none';
     console.log('El usuario ha rechazado las cookies.');
 });
+// images features
+function enlargeImage(img) {
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.zIndex = '1000';
+
+        const imgClone = img.cloneNode();
+        imgClone.style.maxWidth = '90%';
+        imgClone.style.maxHeight = '90%';
+        imgClone.style.borderRadius = '15px';
+
+        modal.appendChild(imgClone);
+        document.body.appendChild(modal);
+
+        modal.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+    }
+
+// Expandir video
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.querySelector(".responsive-video");
+    const body = document.body;
+
+    video.addEventListener("click", function () {
+        if (!video.classList.contains("expanded-video")) {
+            video.classList.add("expanded-video");
+
+            // Crear un fondo oscuro para cerrar el video al tocar fuera
+            const overlay = document.createElement("div");
+            overlay.classList.add("video-overlay");
+            body.appendChild(overlay);
+            overlay.style.display = "block";
+
+            // Evento para cerrar el video al tocar fuera
+            overlay.addEventListener("click", function () {
+                video.classList.remove("expanded-video");
+                overlay.remove(); // Elimina el fondo oscuro
+            });
+        }
+    });
+});
+

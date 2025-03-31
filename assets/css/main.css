@@ -45,6 +45,31 @@ body {
     z-index: -1; /* Detrás del contenido */
 }
 
+.expanded-video {
+    width: 100% !important;
+    height: 100vh !important;
+    object-fit: contain !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: black;
+}
+
+/* Fondo oscuro cuando el video está ampliado */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none; /* Oculto por defecto */
+}
+
+
+
 /* Video responsivo */
 .responsive-video {
     width: 100%;
@@ -130,7 +155,7 @@ body {
 .comparison-title {
     font-size: 1.75em;
     color: #000;
-    text-decoration: underline;
+    text-shadow: 4px 4px 4px rgba(0,0,0,0.2);
     font-weight: bold;
 	margin-bottom: 20px;
 }
@@ -196,7 +221,24 @@ body {
     z-index: 3;
     transform: translateX(-50%);
 }
-
+/* iconos línea deslizante */
+.slider-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .icon-left, .icon-right {
+        font-size: 2rem;
+        color: white;
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+    .slider-text {
+        text-align: center;
+        font-size: 1rem;
+        color: white;
+        margin-top: 0.5rem;
+    }
 ol, ul {
 	list-style: none;
 }
@@ -345,7 +387,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 	}
 
 	p {
-		text-align: center;
+		text-align: justify;
 	}
 
 	br.clear {
@@ -1213,6 +1255,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
 			margin-bottom: 84px;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
 		}
 
 		section.special > header, section.special > footer, article.special > header, article.special > footer {
@@ -1543,16 +1586,38 @@ input[type="reset"].alt:hover {
 .historia-title {
     font-size: 1.75em;
     color: #000000;
-	text-decoration: underline;
+	text-shadow: 4px 4px 4px rgba(0,0,0,0.2);
     font-weight: bold;
     text-align: center;
 }
+/* Historia */
+.wrapper.style2 {
+    background-color: #c8e0f3; /* Azul medieval */
+    color: saddlebrown;
+    padding: 50px 20px;
+    text-align: center;
+}
+.image.featured {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	
+}
 
+.imagen-historia img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+	margin-top: 30px;
+	border-radius: 10px; /* Bordes redondeados */
+}
 /* Sección "Otros datos de interés" */
 .interes-title {
     font-size: 1.75em;
     color: #000000;
-    text-decoration: underline;
+	text-shadow: 4px 4px 4px rgba(0,0,0,0.2);
 	font-weight: bold;
     text-align: center;
 }
@@ -1667,7 +1732,6 @@ input[type="reset"].alt:hover {
 
 /* Banner */
 #banner {
-	background: #fff; 
 	text-align: center;
 	padding: 4.5em 0 4.5em 0;
 	margin-bottom: 0;
@@ -1677,13 +1741,23 @@ input[type="reset"].alt:hover {
 .conocenos-title {
     font-size: 1.75em;
     color: #000000;
-	text-decoration: underline;
+	text-shadow: 4px 4px 4px rgba(0,0,0,0.2);
 	font-weight: bold;
     text-align: center;
 }
 
+/* Banner de Conócenos */
+#banner {
+    background-color: #f69a9a; /* Azul medieval */
+    color: snow;
+    text-align: center;
+    padding: 50px 20px;
+}
+
 #banner header > p {
 	margin-bottom: 0;
+	text-align: justify;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* Content */
@@ -1733,7 +1807,7 @@ input[type="reset"].alt:hover {
 }
 /* Estilos para el logo */
 .footer-logos img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
 }
 /* Estilo para la imagen en pantalla de escritorio (por defecto) */
@@ -1763,7 +1837,7 @@ input[type="reset"].alt:hover {
 }
 /* Estilos para redes sociales */
 .social-icons {
-    margin: 15px 0;
+    margin: 0px 0;
 }
 
 .social-icons ul {
@@ -1774,13 +1848,13 @@ input[type="reset"].alt:hover {
 }
 
 .social-icons ul li {
-    margin-right: 15px;
+    margin-right: 7px;
 }
 
 .social-icons .icon {
     color: black;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.7);
-    font-size: 20px;
+    font-size: 16px;
 }
 
 /* Estilos para el copyright */
@@ -2017,7 +2091,6 @@ input[type="reset"].alt:hover {
     .carousel article {
         width: 18em;
         margin-right: 1.25em;
-		height: 99vh;
     }
 }
 
@@ -2249,7 +2322,7 @@ input[type="reset"].alt:hover {
     text-align: center;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    font-size: 14px;
+    font-size: 13px;
     content: '\f0c9';
     color: rgba(255, 255, 255, 0.75);
     background: rgba(132, 128, 136, 0.75);
@@ -2263,7 +2336,7 @@ input[type="reset"].alt:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 20vh;
     overflow-y: auto;
     background: #1f1920;
     box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.25);
@@ -2313,7 +2386,7 @@ input[type="reset"].alt:hover {
 /* Navigation Panel Visibility */
 body.navPanel-visible #page-wrapper,
 body.navPanel-visible #navButton {
-    transform: translateY(50vh);
+    transform: translateY(20vh);
 }
 
 body.navPanel-visible #navPanel {
@@ -2402,7 +2475,7 @@ body.navPanel-visible #navPanel {
 				.carousel article {
 					width: 14em;
 					padding-bottom: 2em;
-					margin: 0 0.5em 0 0;
+					margin: 0 0.2em 0 0;
 				}
 
 					.carousel article .image {
@@ -2412,87 +2485,200 @@ body.navPanel-visible #navPanel {
 	}
 /* Estilos ajustados para centrar mejor el formulario y reducir su tamaño */
 .form-container {
-    max-width: 450px; /* Reducimos un poco el ancho */
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.form-background #header, .form-background #footer {
-    background: rgba(209, 209, 209, 0.2) !important;
-    color: white !important;
-}
+        max-width: 450px; /* Reducimos un poco el ancho */
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-background #header, .form-background #footer {
+        background: rgba(209, 209, 209, 0.2) !important;
+        color: white !important;
+    }
 
-.background {
-    width: 100%;
-    min-height: calc(100vh - 200px); /* Ajustamos para que no quede pegado al footer */
-    padding: 50px 0; /* Ajustamos el espacio superior e inferior */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .background {
+        width: 100%;
+        min-height: calc(100vh - 200px); /* Ajustamos para que no quede pegado al footer */
+        padding: 50px 0; /* Ajustamos el espacio superior e inferior */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="datetime-local"] {
-    width: 100%;
-    padding: 10px; /* Reducimos el padding para que los inputs no se vean tan grandes */
-    border: 2px solid #000000;
-    border-radius: 8px;
-    font-size: 14px; /* Reducimos un poco el tamaño del texto */
-}
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="datetime-local"] {
+        width: 100%;
+        padding: 10px; /* Reducimos el padding para que los inputs no se vean tan grandes */
+        border: 2px solid #000000;
+        border-radius: 8px;
+        font-size: 14px; /* Reducimos un poco el tamaño del texto */
+    }
 
-.form-button {
-    width: 100%;
-    padding: 10px 18px; /* Ajustamos el tamaño del botón */
-    font-size: 16px;
-    border-radius: 6px;
-    margin-top: 15px;
-	background-color: rgba(0, 0, 0, 0.7);
-}
+    .form-button {
+        width: 100%;
+        padding: 10px 18px; /* Ajustamos el tamaño del botón */
+        font-size: 16px;
+        border-radius: 6px;
+        margin-top: 15px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white; /* Añadido para asegurar que el texto sea visible */
+    }
 
-/* Ocultar la sección del antes y después en móviles */
-.desktop-only {
-    display: block;
-}
-
-.mobile-only {
-    display: none;
-}
-
-/* Mostrar contenido del ante y deespués adecuado según el tamaño de pantalla */
-@media screen and (max-width: 768px) {
+    /* Ocultar la sección del antes y después en móviles */
     .desktop-only {
+        display: block;
+    }
+
+    .mobile-only {
         display: none;
     }
-    
-    .mobile-only {
-        display: block;
-        text-align: center;
-        padding: 20px;
+
+    /* Mostrar contenido del ante y después adecuado según el tamaño de pantalla */
+    @media screen and (max-width: 768px) {
+        .desktop-only {
+            display: none;
+        }
+        
+        .mobile-only {
+            display: block;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .mobile-only img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
     }
 
-    .mobile-only img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
+    /* Estilos adaptados para el calendario */
+    .error {
+        color: red;
+        font-size: 0.9em;
+        text-align: center; /* Alineado con el estilo del formulario */
     }
-}
+
+    #fechaDisplay {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #000000;
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+        background: white; /* Fondo blanco para consistencia */
+    }
+
+    #calendarioContainer {
+        border: 2px solid #000000; /* Borde consistente con los inputs */
+        border-radius: 8px;
+        padding: 15px;
+        background: white;
+        position: absolute;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra igual que el formulario */
+        width: 300px; /* Ajustado para que no sea demasiado ancho */
+    }
+
+    #calendarioHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    #calendarioHeader button {
+        background: none;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: #000000;
+    }
+
+    #calendarioDias {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        font-weight: bold;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    #calendarioFechas {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .dia {
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .dia.deshabilitado {
+        color: #ccc;
+        cursor: not-allowed;
+    }
+
+    .dia.hoy {
+        background: rgba(209, 209, 209, 0.2); /* Fondo similar al header/footer */
+        border: 1px solid #000000;
+    }
+
+    .dia.seleccionado {
+        background: rgba(0, 0, 0, 0.7); /* Fondo igual que el botón */
+        color: white;
+    }
+
+    #horaSelector {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #horaSelector label {
+        font-size: 14px;
+    }
+
+    #horaSelector select {
+        padding: 5px;
+        border: 2px solid #000000;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    #confirmarFecha {
+        padding: 5px 10px;
+        background: rgba(0, 0, 0, 0.7); /* Igual que el botón del formulario */
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+    }
 /* Contacto */
 .info-box {
-    background: #fff;
+	background-color: white;
+	width: 100%;
+	max-width: 800px;
+	margin: 14px auto 24px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-    margin-top: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .info-box h2 {
@@ -2528,7 +2714,8 @@ input[type="datetime-local"] {
     align-items: center;
     position: relative;
     width: 100%;
-    max-width: 1200px;  /* Ajusta según tus preferencias */
+	height: auto;
+    max-width: 720px;  /* Ajusta según tus preferencias */
     margin: 30px auto;
     border-radius: 10px;
     overflow: hidden;
@@ -2612,12 +2799,29 @@ input[type="datetime-local"] {
 	margin-bottom: 20px;
 }
 /* Estilo para h3 en la sección de Audio-Guía */
-.audio-subtitle {
-    font-size: 16px;
-    color: #000000;
-	font-weight: bold;
-    font-style: italic;
-}
+blockquote.audio-subtitle {
+        font-style: italic;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-left: 5px solid #ccc;
+        font-size: 1.2em;
+        color: #333;
+    }
+
+    blockquote.audio-subtitle::before {
+        content: "“";
+        font-size: 2em;
+        color: #ccc;
+        margin-right: 5px;
+    }
+
+    blockquote.audio-subtitle::after {
+        content: "”";
+        font-size: 2em;
+        color: #ccc;
+        margin-left: 5px;
+    }
 
 
 .audio-container {
@@ -2681,11 +2885,12 @@ audio {
     position: fixed;
     bottom: 0;
     width: 100%;
+    height: 17vh;
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 20px;
     text-align: center;
-    z-index: 1000;
+    z-index: 900;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2693,12 +2898,40 @@ audio {
     gap: 15px;
 }
 
+/*Cookies*/
+.cookies-title {
+    text-align: center;
+    font-size: 2em;
+    color: #2a7ae2;
+    margin-top: 20px;
+}
+
+/* Estilos generales del banner de cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 16vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 /* Contenedor de botones */
 .cookie-buttons {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+	gap: 8px; /* Reducido el espacio entre botones */
+    justify-content: space-between; /* Alinea los botones a los extremos */
     align-items: center;
+    width: 43%;
+    max-width: 300px;
 }
 
 /* Texto del banner */
@@ -2706,7 +2939,8 @@ audio {
     font-size: 1rem;
     margin: 0;
     line-height: 1.5;
-    max-width: 800px;
+    max-width: 90%;
+    text-align: center;
 }
 
 /* Estilo para el enlace "Leer más" */
@@ -2723,15 +2957,19 @@ audio {
 
 /* Botón de aceptar */
 #accept-cookies {
-    background-color: #2a7ae2;
-    color: white;
+    background-color: #989aa3;
+    color: #000000;
     border: none;
-    padding: 10px 20px;
+    padding: 3px 6px; /* Tamaño más pequeño */
     cursor: pointer;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 0.9rem; /* Reduce la fuente */
     transition: background-color 0.3s ease;
+    width: 45%; /* Define un ancho para alineación */
+    max-width: 120px;
+    text-align: center;
 }
+
 
 #accept-cookies:hover {
     background-color: #1d5bbf;
@@ -2739,14 +2977,17 @@ audio {
 
 /* Botón de rechazar */
 #reject-cookies {
-    background-color: red;
-    color: white;
+    background-color: #989aa3;
+    color: #000000;
     border: none;
-    padding: 10px 20px;
+    padding: 3px 6px; /* Tamaño más pequeño */
     cursor: pointer;
     border-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 0.9rem; /* Reduce la fuente */
     transition: background-color 0.3s ease;
+    width: 45%; /* Define un ancho para alineación */
+    max-width: 120px;
+    text-align: center;
 }
 
 #reject-cookies:hover {
@@ -2756,21 +2997,24 @@ audio {
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
     .cookie-banner {
-        padding: 15px;
+        padding: 10px;
     }
 
     .cookie-banner p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .cookie-buttons {
-        flex-direction: column;
+        flex-direction: row; /* Asegura que se mantengan en línea */
+        justify-content: space-between;
+        max-width: 61%;
+		gap: 6px;
     }
 
     .cookie-banner button {
-        font-size: 1.1rem;
-        width: 100%;
-        max-width: 300px;
+        font-size: 1rem;
+        max-width: 140px;
+        padding: 8px 16px;
     }
 }
 
@@ -2783,3 +3027,11 @@ audio {
     .cookie-banner p {
         font-size: 0.9rem;
     }
+
+    .cookie-buttons {
+        flex-direction: row; /* Mantiene los botones en línea */
+        justify-content: space-between;
+        width: 61%;
+		gap: 5px;
+    }
+}
