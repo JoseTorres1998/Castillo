@@ -300,61 +300,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Video
-document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("video");
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const muteBtn = document.getElementById("muteBtn");
-    const progressBar = document.getElementById("progressBar");
-    const currentTimeDisplay = document.getElementById("currentTime");
-    const durationDisplay = document.getElementById("duration");
 
-    // Esperar a que el video esté listo para obtener su duración
-    video.addEventListener("canplay", function () {
-        progressBar.max = video.duration;
-        durationDisplay.textContent = formatTime(video.duration);
-    });
-
-    // Play / Pause
-    playPauseBtn.addEventListener("click", function () {
-        if (video.paused) {
-            video.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        } else {
-            video.pause();
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        }
-    });
-
-    // Mute / Unmute
-    muteBtn.addEventListener("click", function () {
-        video.muted = !video.muted;
-        muteBtn.innerHTML = video.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
-    });
-
-    // Actualizar barra de progreso y tiempo actual mientras el video avanza
-    video.addEventListener("timeupdate", function () {
-        progressBar.value = video.currentTime;
-        currentTimeDisplay.textContent = formatTime(video.currentTime);
-    });
-
-    // Permitir adelantar / retroceder el video con la barra
-    progressBar.addEventListener("change", function () {
-        video.currentTime = progressBar.value;
-    });
-
-    // Reproducir automáticamente al finalizar
-    video.addEventListener("ended", function () {
-        video.play();
-    });
-
-    // Función para formatear el tiempo en minutos y segundos
-    function formatTime(seconds) {
-        const min = Math.floor(seconds / 60);
-        const sec = Math.floor(seconds % 60);
-        return `${min}:${sec < 10 ? "0" : ""}${sec}`;
-    }
-});
-
+	
  // Comprobamos si el usuario ya ha aceptado las cookies
                 if (localStorage.getItem('cookies-accepted') !== 'true') {
                     // Mostrar el banner

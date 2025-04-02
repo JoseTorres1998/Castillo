@@ -1,79 +1,86 @@
 /*En este archivo cambiamos todos los estilo, no lo cambies en otro css*/
 
-/* Sección "Youtube" */
-/* Ajuste de la caja de YouTube */
 .youtube {
-    background: rgba(255, 255, 255, 0.95); /* Fondo ligeramente opaco */
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 250%; /* Tamaño más pequeño */
-    max-width: 502px;
-    margin: 14px auto 24px; /* Centrar la caja */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-/* Efecto hover en la caja */
-.youtube:hover {
-    transform: scale(1.05); /* Aumenta ligeramente de tamaño */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+.youtube-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* Imagen dentro de la sección */
-.youtube-icon {
-    width: 60px; /* Ajuste de tamaño */
-    height: auto;
-    margin-bottom: 8px;
-    transition: transform 0.3s ease, filter 0.3s ease;
+.youtube-icon-deco {
+    width: 180px;
+    height: 180px;
 }
 
-/* Efecto hover en la imagen */
-.youtube-icon:hover {
-    transform: scale(1.2); /* La imagen crece */
-    filter: brightness(1.3); /* Se hace más brillante */
-}
-
-/* Ajuste del título h3 dentro de la caja */
-.youtube h3 {
-    font-size: 30px; /* Letra más grande */
+.youtube-title {
+    font-size: 1.75em;
+    color: rgba(255, 0, 0, 0.5);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
     font-weight: bold;
-    color: #d10000; /* Rojo YouTube */
-    margin-top: 8px;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
-}
-.youtube p {
-font-size: 27px;
-text-align: inherit;
 }
 
-/* 📱 Adaptación para tablets y móviles */
-@media screen and (max-width: 1024px) { /* Tablets */
-    .youtube {
-        width: 90%;
-    }
-    .youtube h3 {
-        font-size: 26px;
-    }
-    .youtube p {
-        font-size: 22px;
-    }
+.youtube-text {
+    font-size: 28px;
+    color: #1a1a1a;
+    margin: 30px 0;
+    text-align: center;
 }
 
-@media screen and (max-width: 768px) { /* Móviles */
-    .youtube {
-        width: 95%;
-        padding: 8px;
-    }
-    .youtube h3 {
-        font-size: 22px;
-    }
-    .youtube p {
+/* 📌 Imagen de botón con animación */
+.youtube-link {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.youtube-button {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 52px 16px;
+    border-radius: 6em;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .youtube-button {
         font-size: 18px;
+        padding: 40px 14px;
+        max-width: 250px;
     }
-    .youtube-icon {
-        width: 50px; /* Ícono más pequeño */
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+    .youtube-button {
+        font-size: 16px;
+        padding: 30px 12px;
+        border-radius: 4em;
+        max-width: 200px;
     }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .youtube-button {
+        font-size: 14px;
+        padding: 20px 10px;
+        border-radius: 3em;
+        max-width: 150px;
+    }
+}
+/* Efecto hover */
+.youtube-button:hover {
+    transform: scale(1.1); /* Hace el botón un poco más grande */
+    background: rgba(58, 152, 243, 0.75);
 }
 
 /*featured*/
@@ -109,7 +116,7 @@ text-align: inherit;
    transform: translateY(49px);
     display: block;
     margin: auto;
-    max-width: 100%; /* Evita que se salga del contenedor */
+    max-width: 20%; /* Evita que se salga del contenedor */
     height: auto;
 }
 
@@ -117,7 +124,7 @@ text-align: inherit;
    transform: translateY(-27px);
     display: block;
     margin: auto;
-    max-width: 120%; /* Evita que se salga del contenedor */
+    max-width: 100%; /* Evita que se salga del contenedor */
     height: auto;
 }
 
