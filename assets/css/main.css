@@ -2718,6 +2718,11 @@ body.navPanel-visible #navPanel {
 }
 
 /* Botones de control de la audioguía */
+.news-button-container {
+    text-align: center;
+    margin-top: 32px;
+}
+
 .audio-toggle-btn {
     display: block;
     margin: 20px auto;
